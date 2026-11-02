@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briefing Publicitario - NitroGlup</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        glup: {
+                            red: '#D30F25',
+                            redDark: '#800014',
+                            black: '#0A0607',
+                            card: '#160B0D',
+                            cardBorder: '#321015',
+                            accent: '#FF2A4B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #080405;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+        /* Background Halftone Pattern inspired by the visual reference */
+        .halftone-bg {
+            background-image: radial-gradient(rgba(211, 15, 37, 0.22) 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+        }
+        /* Animated Nitrogen Bubbles Background */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(211, 15, 37, 0.25));
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 0 10px rgba(211, 15, 37, 0.4);
+            animation: floatUp 12s infinite linear;
+            pointer-events: none;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(105vh) scale(0.3);
+                opacity: 0;
+            }
+            20% {
+                opacity: 0.8;
+            }
+            80% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        .glow-red {
+            box-shadow: 0 0 35px -5px rgba(211, 15, 37, 0.45);
+        }
+        .glow-white {
+            box-shadow: 0 0 25px -5px rgba(255, 255, 255, 0.2);
+        }
+        .gradient-text-glup {
+            background: linear-gradient(135deg, #FFFFFF 0%, #FF334B 45%, #D30F25 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen relative pb-16 halftone-bg">
+
+    <!-- Ambient Nitrogen Bubbles Decor -->
+    <div id="bubbles-container" class="fixed inset-0 overflow-hidden pointer-events-none z-0"></div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+
+        <!-- Header Canvas Banner -->
+        <header class="relative rounded-3xl bg-glup-card/90 border border-glup-red/40 backdrop-blur-xl p-8 sm:p-12 mb-10 overflow-hidden glow-red">
+            <!-- Decorative Accent Gradients -->
+            <div class="absolute -top-24 -right-24 w-80 h-80 bg-glup-red/30 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-glup-black/80 border border-glup-red/50 text-xs font-semibold tracking-wider uppercase text-white mb-4">
+                    <span class="w-2 h-2 rounded-full bg-glup-red animate-pulse"></span>
+                    Briefing Publicitario
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-black font-heading tracking-tight mb-2">
+                    CAMPAÑA <span class="gradient-text-glup">NITROGLUP</span>
+                </h1>
+                
+                <!-- Autor (Justo abajo del título/encabezado) -->
+                <div class="mt-3 text-lg font-medium text-slate-300 flex items-center justify-center gap-2">
+                    <span class="text-glup-accent">Autor:</span>
+                    <span class="text-white font-bold tracking-wide">Cristian Bagliani</span>
+                </div>
+
+                <!-- Agency & Metadata Bar -->
+                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-left border-t border-glup-red/30 pt-6">
+                    <div class="bg-glup-black/70 p-3.5 rounded-2xl border border-glup-red/30">
+                        <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Agencia</span>
+                        <span class="text-base font-bold text-white font-heading">KaciKe</span>
+                    </div>
+                    <div class="bg-glup-black/70 p-3.5 rounded-2xl border border-glup-red/30">
+                        <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Cliente / Marca</span>
+                        <span class="text-base font-bold text-white font-heading">Glup</span>
+                    </div>
+                    <div class="bg-glup-black/70 p-3.5 rounded-2xl border border-glup-red/30">
+                        <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Nombre de Campaña</span>
+                        <span class="text-base font-bold text-glup-accent font-heading">NitroGlup</span>
+                    </div>
+                    <div class="bg-glup-black/70 p-3.5 rounded-2xl border border-glup-red/30">
+                        <span class="text-xs uppercase tracking-wider text-slate-400 block font-semibold">Duración</span>
+                        <span class="text-base font-bold text-glup-red font-heading">3 Meses</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Section 1: Información de la Marca y del Producto -->
+            <section class="bg-glup-card/85 border border-glup-red/30 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-red flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-glup-red/20 border border-glup-red/50 flex items-center justify-center text-white font-bold font-heading text-lg">
+                            1
+                        </div>
+                        <h2 class="text-xl font-bold font-heading text-white">Información de la Marca y del Producto</h2>
+                    </div>
+
+                    <div class="space-y-4 text-sm leading-relaxed text-slate-300">
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <strong class="text-glup-accent block mb-1 font-heading text-base">Marca:</strong>
+                            Glup.
+                        </div>
+
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <strong class="text-glup-accent block mb-1 font-heading text-base">Producto / Presentación:</strong>
+                            Nueva presentación en lata de edición limitada (NitroGlup) con microesfera de nitrógeno integrada (inspirada en el sistema de nitrogenado de cervezas tipo Guinness, pero adaptada y perfeccionada para gaseosas).
+                        </div>
+
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <strong class="text-glup-accent block mb-1 font-heading text-base">Función y Diferencial del Producto:</strong>
+                            Al abrir y servir la lata en un vaso, la liberación de nitrógeno genera una textura mucho más cremosa, efervescente y gaseosa al paladar, elevando la experiencia de consumo.
+                        </div>
+
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20 border-l-4 border-l-white">
+                            <strong class="text-white block mb-1 font-heading text-base">Propuesta Única de Venta (USP):</strong>
+                            Es la primera y única marca de gaseosas en el mercado venezolano en implementar tecnología de nitrogenado en lata.
+                        </div>
+
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <strong class="text-glup-accent block mb-1 font-heading text-base">Situación de la Marca:</strong>
+                            Lanzamiento de producto de edición limitada con doble propósito: generar impacto/revuelo mediático (buzz marketing) y reestructurar el posicionamiento de marca frente a los líderes del sector.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Mercado, Competencia y Público Objetivo -->
+            <section class="bg-glup-card/85 border border-glup-red/30 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-white flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/30 flex items-center justify-center text-white font-bold font-heading text-lg">
+                            2
+                        </div>
+                        <h2 class="text-xl font-bold font-heading text-white">Mercado, Competencia y Público Objetivo</h2>
+                    </div>
+
+                    <div class="space-y-5 text-sm leading-relaxed text-slate-300">
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <h3 class="text-white font-bold font-heading text-base mb-3 border-b border-glup-red/20 pb-2">Público Objetivo (Target)</h3>
+                            
+                            <div class="mb-3">
+                                <strong class="text-glup-accent block mb-1">Perfil Demográfico:</strong>
+                                <ul class="list-disc list-inside space-y-1 text-slate-300 pl-1">
+                                    <li><strong>Género:</strong> Hombres y mujeres.</li>
+                                    <li><strong>Edad:</strong> 15 a 50 años.</li>
+                                    <li><strong>Ubicación:</strong> Venezuela (Cobertura nacional).</li>
+                                    <li><strong>Nivel Socioeconómico:</strong> Clase media / media-baja.</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <strong class="text-glup-accent block mb-1">Perfil Psicográfico:</strong>
+                                <ul class="list-disc list-inside space-y-1 text-slate-300 pl-1">
+                                    <li>Consumidores con rutinas diarias monótonas que buscan pequeñas válvulas de escape o novedades accesibles dentro de su día a día.</li>
+                                    <li>Dispuestos a probar cosas nuevas dentro de un mercado local percibido con poca variedad o innovación.</li>
+                                    <li>Orgullosos del ingenio local y receptivos a mensajes de superación y resiliencia.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                            <h3 class="text-white font-bold font-heading text-base mb-3 border-b border-glup-red/20 pb-2">Análisis de la Competencia</h3>
+                            <ul class="list-disc list-inside space-y-2 text-slate-300">
+                                <li><strong>Competidores Directos:</strong> Coca-Cola y Pepsi.</li>
+                                <li><strong>Situación del Sector:</strong> Son los gigantes globales dominantes del mercado venezolano con alta fidelidad de marca. Sin embargo, no han introducido esta tecnología en el país, dejando una ventana de oportunidad para que Glup abandone la etiqueta de "opción económica" y asuma un rol de innovador local.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Estrategia de Comunicación (Full width) -->
+            <section class="md:col-span-2 bg-glup-card/85 border border-glup-red/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-red">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-glup-red/20 border border-glup-red/50 flex items-center justify-center text-glup-accent font-bold font-heading text-lg">
+                        3
+                    </div>
+                    <h2 class="text-xl font-bold font-heading text-white">Estrategia de Comunicación</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-glup-black/60 p-5 rounded-2xl border border-glup-red/20 flex flex-col justify-between">
+                        <div>
+                            <strong class="text-glup-accent block mb-2 font-heading text-base">Objetivo Principal de la Campaña:</strong>
+                            <p class="text-sm text-slate-300 leading-relaxed">
+                                <strong class="text-white">Objetivo de Posicionamiento:</strong> Transformar la percepción pública de Glup —pasando de ser vista como una "copia económica"— para consolidarse como una marca nacional innovadora, atrevida y con capacidad técnica para competir de tú a tú contra transnacionales.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Highlight Key Message Card -->
+                    <div class="bg-gradient-to-br from-glup-red/40 via-glup-black to-glup-redDark/60 p-6 rounded-2xl border border-glup-red/60 flex flex-col justify-center text-center relative overflow-hidden">
+                        <span class="text-xs font-bold uppercase tracking-widest text-white mb-2">Mensaje Clave (Key Message)</span>
+                        <blockquote class="text-lg sm:text-xl font-black font-heading italic text-white leading-snug">
+                            "Glup no es una copia: es la reinvención y el sentimiento de todos los venezolanos de hacerle frente hasta a los más grandes del mundo."
+                        </blockquote>
+                    </div>
+
+                    <div class="bg-glup-black/60 p-5 rounded-2xl border border-glup-red/20 flex flex-col justify-between">
+                        <div>
+                            <strong class="text-glup-accent block mb-2 font-heading text-base">Tono y Estilo:</strong>
+                            <ul class="list-disc list-inside space-y-2 text-sm text-slate-300 leading-relaxed">
+                                <li><strong>Tono:</strong> Inspirador, emotivo, desafiante y cercano.</li>
+                                <li><strong>Enfoque Emocional:</strong> Conectar el atrevimiento técnico del producto con el espíritu del venezolano: el ingenio para innovar, no amedrentarse ante gigantes y demostrar calidad hecha en casa.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Plan de Medios y Entregables -->
+            <section class="bg-glup-card/85 border border-glup-red/30 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-white">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/30 flex items-center justify-center text-white font-bold font-heading text-lg">
+                        4
+                    </div>
+                    <h2 class="text-xl font-bold font-heading text-white">Plan de Medios y Entregables</h2>
+                </div>
+
+                <p class="text-sm text-slate-300 mb-4 leading-relaxed">
+                    Para maximizar el alcance durante los 3 meses de producción de <strong class="text-glup-accent">NitroGlup</strong>, se utilizará una mezcla de medios masivos y digitales:
+                </p>
+
+                <div class="space-y-4 text-sm">
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                        <strong class="text-white font-heading text-base block mb-2">1. Redes Sociales (Digital):</strong>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300">
+                            <li>Contenido audiovisual corto (Reels/TikTok) enfocado en la experiencia sensorial: el sonido de la lata, el servido perfecto en el vaso y la textura de la espuma.</li>
+                            <li>Campaña con creadores de contenido locales probando la tecnología por primera vez.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                        <strong class="text-white font-heading text-base block mb-2">2. Vías Públicas y Vallas:</strong>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300">
+                            <li>Arte visual de alto impacto enfatizando la lata, la esférica de nitrógeno y frases contundentes sobre el reto a los gigantes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20">
+                        <strong class="text-white font-heading text-base block mb-2">3. Televisión:</strong>
+                        <ul class="list-disc list-inside space-y-1 text-slate-300">
+                            <li>Comercial emotivo de 30 segundos narrando el reto de innovar en casa y mostrando el producto en acción.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Mandatorios y Restricciones (Mandatories) -->
+            <section class="bg-glup-card/85 border border-glup-red/30 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-red">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-glup-red/20 border border-glup-red/50 flex items-center justify-center text-glup-accent font-bold font-heading text-lg">
+                        5
+                    </div>
+                    <h2 class="text-xl font-bold font-heading text-white">Mandatorios y Restricciones (Mandatories)</h2>
+                </div>
+
+                <div class="space-y-4 text-sm">
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20 border-l-4 border-l-glup-red">
+                        <strong class="text-glup-accent font-heading text-base block mb-1">Nombre de Campaña:</strong>
+                        Identificar visual y verbalmente la edición limitada bajo el nombre <strong class="text-white">NitroGlup</strong>.
+                    </div>
+
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20 border-l-4 border-l-white">
+                        <strong class="text-white font-heading text-base block mb-1">Eje Narrativo Obligatorio:</strong>
+                        El concepto emotivo de <em>reinvención, audacia e ingenio venezolano</em> debe ser la espina dorsal de todas las piezas creativas.
+                    </div>
+
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20 border-l-4 border-l-glup-red">
+                        <strong class="text-glup-accent font-heading text-base block mb-1">Enfoque de Producto:</strong>
+                        Mostrar claramente el funcionamiento visual y el beneficio sensorial que aporta la bola de nitrógeno al servirse.
+                    </div>
+
+                    <div class="bg-glup-black/60 p-4 rounded-2xl border border-glup-red/20 border-l-4 border-l-slate-400">
+                        <strong class="text-slate-200 font-heading text-base block mb-1">Cierre de Piezas:</strong>
+                        Presencia visible del logotipo de Glup, el nombre de la campaña y la leyenda de <strong class="text-white">"Edición Limitada"</strong>.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6: Estrategias de Comercialización (Push & Pull) -->
+            <section class="md:col-span-2 bg-glup-card/85 border border-glup-red/40 backdrop-blur-md rounded-3xl p-6 sm:p-8 glow-white">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 rounded-2xl bg-white/10 border border-white/30 flex items-center justify-center text-white font-bold font-heading text-lg">
+                        6
+                    </div>
+                    <h2 class="text-xl font-bold font-heading text-white">Estrategias de Comercialización (Push & Pull)</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-10">
+                    <div class="bg-glup-black/60 p-5 rounded-2xl border border-glup-red/20 flex flex-col justify-center">
+                        <strong class="text-glup-accent block mb-2 font-heading text-base">Estrategia Pull (Seeding y Reto Viral):</strong>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Envío de PR Boxes a creadores de contenido locales para capturar su reacción orgánica al destapar la lata. Este unboxing detonará el reto digital del "servido perfecto", impulsando a la audiencia a comprar el producto para replicar y viralizar el efecto de la espuma, apoyados siempre por la amplificación de las redes oficiales de Glup.
+                        </p>
+                    </div>
+
+                    <div class="bg-glup-black/60 p-5 rounded-2xl border border-glup-red/20 flex flex-col justify-center border-l-4 border-l-glup-red">
+                        <strong class="text-white block mb-2 font-heading text-base">Estrategia Push (Material POP y Sampling):</strong>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Toma agresiva del piso de venta con material disruptivo (calcomanías de piso, cabeceras y rompetráficos) para frenar al shopper al instante. Este impacto visual anclará las activaciones de sampling en vivo, donde los promotores servirán la lata frente al cliente para forzar la compra por impulso al demostrar directamente la textura única de NitroGlup.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Galería de Imágenes de Estrategia (En Columna) -->
+                <div class="flex flex-col gap-10 items-center max-w-4xl mx-auto">
+                    <div class="w-full rounded-2xl overflow-hidden border border-glup-red/30 shadow-[0_0_15px_rgba(211,15,37,0.2)] hover:shadow-[0_0_25px_rgba(211,15,37,0.5)] transition-all duration-300">
+                        <img src="https://i.imgur.com/ada4a1e.jpeg" alt="Lata NitroGlup - Edición Limitada" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-full rounded-2xl overflow-hidden border border-glup-red/30 shadow-[0_0_15px_rgba(211,15,37,0.2)] hover:shadow-[0_0_25px_rgba(211,15,37,0.5)] transition-all duration-300">
+                        <img src="https://i.imgur.com/oAKvxvo.jpeg" alt="Material POP en piso - Calcomanía NitroGlup" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="w-full rounded-2xl overflow-hidden border border-glup-red/30 shadow-[0_0_15px_rgba(211,15,37,0.2)] hover:shadow-[0_0_25px_rgba(211,15,37,0.5)] transition-all duration-300">
+                        <img src="https://i.imgur.com/ZAIzVK1.jpeg" alt="Campaña NitroGlup - Siempre hay algo mejor" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer Banner -->
+        <footer class="mt-12 text-center text-xs text-slate-500 py-6 border-t border-glup-red/20">
+            <p>Agencia KaciKe &copy; Briefing Publicitario - NitroGlup | Autor: Cristian Bagliani</p>
+        </footer>
+
+    </div>
+
+    <!-- Bubble Generation Script -->
+    <script>
+        const container = document.getElementById('bubbles-container');
+        const bubbleCount = 25;
+
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            
+            const size = Math.random() * 24 + 8; // 8px to 32px
+            const left = Math.random() * 100; // 0% to 100%
+            const duration = Math.random() * 10 + 8; // 8s to 18s
+            const delay = Math.random() * 10; // 0s to 10s
+
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${left}%`;
+            bubble.style.animationDuration = `${duration}s`;
+            bubble.style.animationDelay = `${delay}s`;
+
+            container.appendChild(bubble);
+        }
+    </script>
+</body>
+</html>
